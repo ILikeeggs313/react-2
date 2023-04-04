@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { Navbar, Nav, NavItem } from "reactstrap";
 
 function NavBar() {
+  //let's add some stuff to the navbar to add more links
   return (
     <div>
       <Navbar expand="md">
@@ -14,6 +15,12 @@ function NavBar() {
         <Nav className="ml-auto" navbar>
           <NavItem>
             <NavLink to="/snacks">Snacks</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink to="/drinks">Drinks</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink to="/add">Add Item</NavLink>
           </NavItem>
         </Nav>
       </Navbar>

@@ -9,8 +9,9 @@ import {
   ListGroup,
   ListGroupItem
 } from "reactstrap";
+// import { drinks } from "./db.json";
 
-function FoodMenu({ snacks }) {
+function FoodMenu({ snacks, drinks }) {
   return (
     <section className="col-md-4">
       <Card>
@@ -19,13 +20,19 @@ function FoodMenu({ snacks }) {
             Food Menu
           </CardTitle>
           <CardText>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            {/* we have {snacks.length} available: */}
           </CardText>
           <ListGroup>
-            {snacks.map(snack => (
-              <Link to={`/snacks/${snack.id}`} key={snack.id}>
+            {snacks && snacks.map(snack => (
+              <Link to={`snacks/${snack.id}`} key={snacks.id}>
                 <ListGroupItem>{snack.name}</ListGroupItem>
+              </Link>
+            ))}
+          </ListGroup>
+          <ListGroup>
+            {drinks?.map(drink => (
+              <Link to={`drinks/${drink.id}`} key={drinks.id}>
+                <ListGroupItem>{drink.name}</ListGroupItem>
               </Link>
             ))}
           </ListGroup>

@@ -1,4 +1,5 @@
 import axios from "axios";
+import React, {Component} from "react";
 
 const BASE_API_URL = "http://localhost:5000";
 
@@ -9,13 +10,26 @@ const BASE_API_URL = "http://localhost:5000";
   You'll need to add to this class as you build features for the app.
 */
 
-class SnackOrBoozeApi {
+export default class SnackOrBoozeApi extends Component{
 
   static async getSnacks() {
     const result = await axios.get(`${BASE_API_URL}/snacks`);
     return result.data;
   }
+  static async  getDrinks() {
+    const result = await axios.get(`${BASE_API_URL}/drinks`);
+    return result.data;
+  }
+  static async addMenuItem(data) {
+    await axios.post(`${BASE_API_URL}/${data.category}`,{
+      id:data.name,
+      name:data.name,
+      description:data.description,
+      recipe:data.recipe,
+      serve:data.serve
+    });
+  }
 
 }
 
-export default SnackOrBoozeApi;
+
